@@ -1,0 +1,6 @@
+com\gabriellopes\notification\Notification$NotificationBuilder.class
+com\gabriellopes\notification\Notification.class
+com\gabriellopes\notification\NotificationController.class
+com\gabriellopes\notification\NotificationRepository.class
+com\gabriellopes\notification\NotificationService.class
+com\gabriellopes\notification\NotificationApplication.class

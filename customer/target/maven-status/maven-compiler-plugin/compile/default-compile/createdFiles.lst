@@ -1,0 +1,8 @@
+com\gabriellopes\customer\CustomerService.class
+com\gabriellopes\customer\FraudCheckResponse.class
+com\gabriellopes\customer\Customer$CustomerBuilder.class
+com\gabriellopes\customer\Customer.class
+com\gabriellopes\customer\CustomerRepository.class
+com\gabriellopes\customer\CustomerRegistrationRequest.class
+com\gabriellopes\customer\CustomerApplication.class
+com\gabriellopes\customer\CustomerController.class
