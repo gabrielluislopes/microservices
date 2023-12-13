@@ -1,0 +1,4 @@
+com\gabriellopes\clients\notification\NotificationRequest.class
+com\gabriellopes\clients\fraud\FraudCheckResponse.class
+com\gabriellopes\clients\fraud\FraudClient.class
+com\gabriellopes\clients\notification\NotificationClient.class

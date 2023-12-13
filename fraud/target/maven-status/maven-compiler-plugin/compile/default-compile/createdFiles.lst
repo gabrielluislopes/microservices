@@ -1,0 +1,6 @@
+com\gabriellopes\fraud\FraudCheckHistory.class
+com\gabriellopes\fraud\FraudCheckHistoryRepository.class
+com\gabriellopes\fraud\FraudCheckService.class
+com\gabriellopes\fraud\FraudController.class
+com\gabriellopes\fraud\FraudCheckHistory$FraudCheckHistoryBuilder.class
+com\gabriellopes\fraud\FraudApplication.class
