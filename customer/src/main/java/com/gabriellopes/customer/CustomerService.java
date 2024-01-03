@@ -1,5 +1,6 @@
 package com.gabriellopes.customer;
 
+import com.gabriellopes.amqp.RabbitMQMessageProducer;
 import com.gabriellopes.clients.fraud.FraudCheckResponse;
 import com.gabriellopes.clients.fraud.FraudClient;
 import com.gabriellopes.clients.notification.NotificationClient;
@@ -12,8 +13,8 @@ import org.springframework.stereotype.Service;
 public class CustomerService{
 
     private final CustomerRepository customerRepository;
-    private final NotificationClient notificationClient;
     private final FraudClient fraudClient;
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
 
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
@@ -31,13 +32,16 @@ public class CustomerService{
             throw new IllegalStateException("fraudster");
         }
 
-        // todo: make i async. i.e add to queue
-        notificationClient.sendNotification(
-                new NotificationRequest(
-                        customer.getId(),
-                        customer.getEmail(),
-                        String.format("Hi %s, welcome to lopesservices...", customer.getFirstName())
-                )
+        NotificationRequest notificationRequest = new NotificationRequest(
+                customer.getId(),
+                customer.getEmail(),
+                String.format("Hi %s, welcome to lopesservices...",
+                        customer.getFirstName())
+        );
+        rabbitMQMessageProducer.publish(
+                notificationRequest,
+                "internal.exchange",
+                "internal.notification.routing-key"
         );
     }
 }
